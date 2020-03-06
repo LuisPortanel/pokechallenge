@@ -16,7 +16,8 @@ export type Action = {
     next: string,
     previous: string,
     results: Array<string>
-  }
+  },
+  pokemon: Array<string>
 }
 
 export default combineReducers(reducers)

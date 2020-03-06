@@ -3,13 +3,15 @@ import { type Action } from '.'
 import {
   API,
   SAVE_LIST_POKEMON,
-  UPDATE_LOAD_MORE_URL
+  UPDATE_LOAD_MORE_URL,
+  SAVE_SINGLE_POKEMON
 } from '../../utils/constants'
 
 const initialState = {
   next: `${API}pokemon?offset=0&limit=10`,
   loadMoreUrl: '',
-  pokemonList: []
+  pokemonList: [],
+  pokemon: {}
 }
 
 type PokemonFetchReducer = typeof initialState
@@ -30,6 +32,16 @@ const pokemonFetchReducer = (state: PokemonFetchReducer = initialState, action: 
           ...state.pokemonList,
           ...action.payload.results
         ]
+      }
+
+    case SAVE_SINGLE_POKEMON:
+      return {
+        ...state,
+        pokemon: {
+          ...state.pokemon,
+          [action.payload.id]: action.payload
+        }
+
       }
 
     default:

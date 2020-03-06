@@ -9,11 +9,13 @@ import Pokemon from '../components/Pokemon'
 const Routes = () => (
   <>
     <Nav />
-    <Switch>
-      <Route path="/" exact component={Home} />
-      <Route path="/pokelist" exact component={PokeList} />
-      <Route path="/pokemon/:pokemonNumber" exact component={Pokemon} />
-    </Switch>
+    <div className="container">
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/pokelist" exact component={PokeList} />
+        <Route path="/pokemon/:pokemonNumber" exact component={Pokemon} />
+      </Switch>
+    </div>
   </>
 )
 

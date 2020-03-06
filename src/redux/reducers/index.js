@@ -1,15 +1,22 @@
 // @flow
 import { combineReducers } from 'redux'
-import dummyReducer from './dummyReducer'
+import pokemonFetchReducer from './pokemonFetchReducer'
 
 const reducers = {
-  dummy: dummyReducer
+  pokemonFetch: pokemonFetchReducer
 }
 
 export type State = typeof reducers
 
 export type Action = {
-  +type: string
+  +type: string,
+  loadMoreUrl: string,
+  payload: {
+    id: number,
+    next: string,
+    previous: string,
+    results: Array<string>
+  }
 }
 
 export default combineReducers(reducers)

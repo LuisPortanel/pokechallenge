@@ -2,18 +2,24 @@
 import React from 'react'
 import './assets/App.css'
 import { Provider } from 'react-redux'
+import { Router } from 'react-router-dom'
+import Routes from './routes'
 
 import { type Store as ReduxStore, type StoreEnhancer } from 'redux'
 import { type State, type Action } from './redux/reducers'
+import { type BrowserHistory } from 'history'
 
 type Store = ReduxStore<State, StoreEnhancer<State, Action>>
+type AppType = {
+  store: Store,
+  browserHistory: BrowserHistory
+}
 
-const App = ({ store }: Store) => (
-
+const App = ({ store, browserHistory }: AppType) => (
   <Provider store={store}>
-    <div className="App">
-      <h1>Pokemon Challenge</h1>
-    </div>
+    <Router history={browserHistory}>
+      <Routes/ >
+    </Router>
   </Provider>
 )
 

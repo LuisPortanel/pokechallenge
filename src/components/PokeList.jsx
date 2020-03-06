@@ -28,10 +28,12 @@ const PokeList = ({ pokemonList, loadMoreUrl, next, saveListPokemon, updateLoadM
 
   return (
     <div>
-      {pokemonList.map(pkmn => <div key={pkmn.name}>
-        <Link to={pkmn.url.replace(API, '')}>{pkmn.name}</Link>
-      </div>)}
-      <button type="button" onClick={updateLoadMoreUrl}>Load more</button>
+      <div className="row row-cols-3 row-cols-md-5 row-cols-lg-6 mt-5">
+        {pokemonList.map(pkmn => <div key={pkmn.name} className="col card">
+          <Link to={pkmn.url.replace(API, '')} className="card-body">{pkmn.name}</Link>
+        </div>)}
+      </div>
+      <button type="button" className="btn btn-primary btn-lg btn-block my-5" onClick={updateLoadMoreUrl}>Load more</button>
     </div>)
 }
 const mapStateToProps = state => ({

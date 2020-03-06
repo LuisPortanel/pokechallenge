@@ -36,33 +36,29 @@ const Pokemon = ({ match, pokemon, saveSinglePokemon }: PokemonType) => {
     <div>
       <Link to="/pokelist" className="btn btn-lg btn-primary my-5">← Go back</Link>
       {pkmn && (
-        <div>
-          <animated.img style={fade} src={pkmn.sprites.front_default} />
+        <div className="card" style={{ width: '100%', maxWidth: '36rem', margin: '0 auto' }}>
+          <animated.img style={fade} src={pkmn.sprites.front_default} className="card-img-top"/>
 
-          <h1>
-            {pkmn.name}
-          </h1>
-
-          <h2>
-            {pkmn.types[0].type.name}{pkmn.types[1] && ` / ${pkmn.types[1].type.name}`}
-          </h2>
-
-          <h4>
-            # {pkmn.id}
-          </h4>
-
-          <div>Abilities: <ul>{
-            pkmn.abilities.map(ability =>
-              <li key={ability.ability.name}>
-                {ability.ability.name}
-              </li>)
-          }</ul></div>
-
-          <div>
-            <h4>Base stats</h4>
-            {
-              pkmn.stats.map(stat => <p key={stat.stat.name}>{`${stat.stat.name}: ${stat.base_stat}`}</p>)
-            }
+          <div className="card-body">
+            <h1 className="card-title">
+              {pkmn.name}
+            </h1>
+            <h3>
+              {pkmn.types[0].type.name}{pkmn.types[1] && ` / ${pkmn.types[1].type.name}`}
+            </h3>
+            <h4>#{pkmn.id}</h4>
+            <div className="my-5">Abilities: <ul>{
+              pkmn.abilities.map(ability =>
+                <li key={ability.ability.name}>
+                  {ability.ability.name}
+                </li>)
+            }</ul></div>
+            <div>
+              <h4>Base stats</h4>
+              {
+                pkmn.stats.map(stat => <p key={stat.stat.name}>{`${stat.stat.name}: ${stat.base_stat}`}</p>)
+              }
+            </div>
           </div>
 
         </div>

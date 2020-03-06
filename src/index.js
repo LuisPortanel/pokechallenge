@@ -9,6 +9,7 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 import rootReducer from './redux/reducers'
 import ReduxThunk from 'redux-thunk'
 import { createBrowserHistory } from 'history'
+import 'bootstrap/dist/css/bootstrap.min.css'
 
 const browserHistory = createBrowserHistory()
 

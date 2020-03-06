@@ -8,7 +8,7 @@ import {
 } from '../../utils/constants'
 
 const initialState = {
-  next: `${API}pokemon?offset=0&limit=10`,
+  next: `${API}pokemon?offset=0&limit=30`,
   loadMoreUrl: '',
   pokemonList: [],
   pokemon: {}

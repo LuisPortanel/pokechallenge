@@ -4,6 +4,7 @@ import { type Match, Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { API, SAVE_SINGLE_POKEMON } from '../utils/constants'
 import axios from 'axios'
+import { useSpring, animated } from 'react-spring'
 
 type PokemonType = {
     match: Match,
@@ -24,13 +25,19 @@ const Pokemon = ({ match, pokemon, saveSinglePokemon }: PokemonType) => {
   } else {
     pkmn = pokemon[pokemonNumber]
   }
+  const fade = useSpring({
+    from: { opacity: 0, transform: 'scale(0.01) rotate(0deg)' },
+    to: { opacity: 1, transform: 'scale(1) rotate(360deg)' },
+    config: { duration: 1000 }
+
+  })
 
   return (
     <div>
       <Link to="/pokelist" className="btn btn-lg btn-primary my-5">← Go back</Link>
       {pkmn && (
         <div>
-          <img src={pkmn.sprites.front_default} />
+          <animated.img style={fade} src={pkmn.sprites.front_default} />
 
           <h1>
             {pkmn.name}

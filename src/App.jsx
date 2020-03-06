@@ -2,7 +2,7 @@
 import React from 'react'
 import './assets/App.css'
 import { Provider } from 'react-redux'
-import { Router } from 'react-router-dom'
+import { Router } from 'react-router'
 import Routes from './routes'
 
 import { type Store as ReduxStore, type StoreEnhancer } from 'redux'
@@ -18,7 +18,7 @@ type AppType = {
 const App = ({ store, browserHistory }: AppType) => (
   <Provider store={store}>
     <Router history={browserHistory}>
-      <Routes/ >
+      <Routes />
     </Router>
   </Provider>
 )

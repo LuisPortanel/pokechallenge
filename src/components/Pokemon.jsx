@@ -73,4 +73,4 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   saveSinglePokemon: payload => dispatch({ type: SAVE_SINGLE_POKEMON, payload })
 })
-export default connect(mapStateToProps, mapDispatchToProps)(Pokemon)
+export default connect<any, any, any, any, any, any>(mapStateToProps, mapDispatchToProps)(Pokemon)

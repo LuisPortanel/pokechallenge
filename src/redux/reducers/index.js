@@ -20,4 +20,4 @@ export type Action = {
   pokemon: Array<string>
 }
 
-export default combineReducers(reducers)
+export default combineReducers<any, any>(reducers)
